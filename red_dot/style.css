@@ -1,0 +1,17 @@
+#dot {
+    height: 50px;
+    width: 50px;
+    background-color: red;
+    border-radius: 50%;
+    display: inline-block;
+    position:absolute;
+  }
+
+  #gamepad {
+    width: 800px;
+    height: 600px;
+    border-width: 2px;
+    border-color: gray;
+    border-style: solid;
+    position: absolute;
+}
