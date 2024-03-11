@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spørg</title>
+
+    <script type="text/javascript">
+
+        function query(question) {
+            let answer = "Det man siger er man selv, for det står i Aktuelt!"
+            return answer
+        }
+
+        function handleQuestion() { 
+            let q = document.getElementById("question").innerText
+            let a = query(q)
+            document.getElementById("answer").innerText = a
+        }
+
+        window.onload = function() {
+            document.getElementById("ask").addEventListener("click", handleQuestion)
+            // see https://developer.mozilla.org/en-US/docs/Web/Events/Event_handlers#registering_event_handlers
+        }
+
+    </script>
+</head>
+<body>
+    
+    <h1>Spørg Eliza</h1>
+
+    <div id="answer"></div>
+    <input name="Spørgsmål" id="question" />
+    <input type="button" id="ask" value="Spørg">
+
+</body>
+</html>
