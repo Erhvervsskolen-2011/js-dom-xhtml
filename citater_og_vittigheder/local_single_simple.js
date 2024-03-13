@@ -11,12 +11,41 @@ window.onload = function() {
 
     console.log("jokes: ", jokes)
 
+    function getJokeTypes(jokes) {
+        let types = {} 
+        let l = jokes.length
+        for (let i = 0; i < l; i++) {
+            if (jokes[i].type && !(jokes[i].type in types) ) {
+                console.log("type: ", jokes[1].type)
+                type = jokes[i].type
+                types[type] = type[0].toUpperCase() + type.slice(1)
+            }
+        }
+        return types
+    }
+    console.log("types; ", getJokeTypes(jokes))
+    jokeTypes = getJokeTypes(jokes)
+
+    function getJokesByType(type, jokes) {
+        let sublist = []
+        let l = jokes.length
+        for (let i = 0; i < l; i++) {
+            if (jokes[i].type == type) {
+                sublist.push(jokes[i])
+            }
+        }
+        return sublist
+    }
+    console.log("Programming jokes: ", getJokesByType("programming", jokes))
+    for (let i = 0; i < jokeTypes.length; i++) {
+        // console.log("Programming jokes: ", getJokesByType(jokeTypes[i], jokes))
+    }
+
     function randomInt(max = 1) {
         return Math.round(Math.random() * max)
     }
     // console.log(randomInt())
     // console.log(randomInt(5))
-    
 
     function selectJoke(jokes) {
         let n = jokes.length
