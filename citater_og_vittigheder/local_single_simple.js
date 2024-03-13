@@ -7,9 +7,9 @@ console.log("User information: %o", userInfo);
 window.onload = function() {
     
     const json_element = document.getElementById("dad_jokes")
-    console.log(json_element)
+    // console.log(json_element)
 
-    console.log("jokes: ", jokes)
+    // console.log("jokes: ", jokes)
 
     function getJokeTypes(jokes) {
         let types = {} 
@@ -23,7 +23,7 @@ window.onload = function() {
         }
         return types
     }
-    console.log("types; ", getJokeTypes(jokes))
+    // console.log("types; ", getJokeTypes(jokes))
     jokeTypes = getJokeTypes(jokes)
 
     function getJokesByType(type, jokes) {
@@ -42,7 +42,7 @@ window.onload = function() {
     for (var key in jokeTypes) {
         // console.log("key: ", key)
         // console.log("val: ", jokeTypes[key])
-        console.log(jokeTypes[key], "-jokes: ", getJokesByType(key, jokes))
+        // console.log(jokeTypes[key], "-jokes: ", getJokesByType(key, jokes))
         option = document.createElement('option')
         option.value = key
         option.innerText = jokeTypes[key]
@@ -52,7 +52,7 @@ window.onload = function() {
 
 
     function randomInt(max = 1) {
-        return Math.round(Math.random() * max)
+        return Math.floor(Math.random() * max)
     }
     // console.log(randomInt())
     // console.log(randomInt(5))
@@ -74,8 +74,9 @@ window.onload = function() {
     }
 
     function tellJoke() {
-        console.log("About to tell a joke.")
+        // console.log("About to tell a joke.")
         joke = selectJoke(jokes)
+        // console.log(joke)
         showJoke(joke)
     }
 
