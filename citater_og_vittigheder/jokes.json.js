@@ -1,32 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vittigheder, citater mv.</title>
-
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#embedding_data_in_html -->
-    <script id="data" type="application/json">
-        {
-          "userId": 1234,
-          "userName": "Maria Cruz",
-          "memberSince": "2000-01-01T00:00:00.000Z"
-        }
-    </script>
-    <script id="dad_jokes" type="text/javascript" src="jokes.json.js"></script>
-    <script type="text/javascript" src="local_single_simple.js"></script>
-</head>
-<body>
-    <h2>Jokes</h2>
-
-    <div id="dad_jokes">
-        <p id="setup"></p>
-        <p id="punchline"></p>
-    </div>
-</body>
-
-<script id="jokes" type="application/json">
-    [
+jokes = 
+[
     {
       "id": 1,
       "type": "general",
@@ -214,6 +187,3 @@
       "punchline": "The second byte replies, \"No, just feeling a bit off.\""
     }
   ]
-</script>
-
-</html>
