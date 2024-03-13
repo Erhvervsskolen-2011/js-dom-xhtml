@@ -11,24 +11,34 @@ window.onload = function() {
 
     console.log("jokes: ", jokes)
 
-    //json_element.onload = function() {
-        // const json_text = document.getElementById("dad_jokes").text
-        // console.log("Element <>: ", document.getElementById("dad_jokes"))
-        //console.log("json_text:", json_text)
-        //const json = JSON.parse(document.getElementById("dad_jokes").text);
-        
-        //console.log("User information: %o", userInfo);
-    //}
-    //*/
+    function randomInt(max = 1) {
+        return Math.round(Math.random() * max)
+    }
+    // console.log(randomInt())
+    // console.log(randomInt(5))
+    
 
-    console.log("json embbeded i script-blok i slutninegen")
-    const json_element_emb = document.getElementById("jokes")
-    console.log(json_element_emb)
+    function selectJoke(jokes) {
+        let n = jokes.length
+        let i = randomInt(n)
+        let joke = jokes[i]
+        return joke
+    }
+    // console.log("Joke: ", selectJoke(jokes))
 
-    //json_element.onload = function() {
-        const json_text_emb = document.getElementById("jokes").text
-        console.log("json_text_emb", json_text_emb)
-        const json_emb = JSON.parse(document.getElementById("jokes").text);
-        console.log("jokes: ", json_emb);
-    //}
+    function showJoke(joke) {
+        let setup_p = document.querySelector("div#dad_jokes p#setup")
+        setup_p.innerText = joke.setup
+        let punchline_p = document.querySelector("div#dad_jokes p#punchline")
+        punchline_p.innerText = joke.punchline
+    }
+
+    function tellJoke() {
+        console.log("About to tell a joke.")
+        joke = selectJoke(jokes)
+        showJoke(joke)
+    }
+
+    tell_button = document.getElementById("Tell")
+    tell_button.addEventListener("click", tellJoke)
 }
