@@ -16,7 +16,7 @@ window.onload = function() {
         let l = jokes.length
         for (let i = 0; i < l; i++) {
             if (jokes[i].type && !(jokes[i].type in types) ) {
-                console.log("type: ", jokes[1].type)
+                // console.log("type: ", jokes[i].type)
                 type = jokes[i].type
                 types[type] = type[0].toUpperCase() + type.slice(1)
             }
@@ -36,10 +36,20 @@ window.onload = function() {
         }
         return sublist
     }
-    console.log("Programming jokes: ", getJokesByType("programming", jokes))
-    for (let i = 0; i < jokeTypes.length; i++) {
-        // console.log("Programming jokes: ", getJokesByType(jokeTypes[i], jokes))
+    // console.log("Programming jokes: ", getJokesByType("programming", jokes))
+
+    let type_selector = document.getElementById("joke_type")
+    for (var key in jokeTypes) {
+        // console.log("key: ", key)
+        // console.log("val: ", jokeTypes[key])
+        console.log(jokeTypes[key], "-jokes: ", getJokesByType(key, jokes))
+        option = document.createElement('option')
+        option.value = key
+        option.innerText = jokeTypes[key]
+        type_selector.appendChild(option)
     }
+
+
 
     function randomInt(max = 1) {
         return Math.round(Math.random() * max)
@@ -48,9 +58,10 @@ window.onload = function() {
     // console.log(randomInt(5))
 
     function selectJoke(jokes) {
-        let n = jokes.length
+        _jokes = getJokesByType(document.getElementById('joke_type').value, jokes)
+        let n = _jokes.length
         let i = randomInt(n)
-        let joke = jokes[i]
+        let joke = _jokes[i]
         return joke
     }
     // console.log("Joke: ", selectJoke(jokes))
